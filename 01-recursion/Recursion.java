@@ -1,4 +1,4 @@
-public class Recurssion {
+public class Recursion {
     public int fact(int n){
 	if (n > 1){
 	    return n * fact(n - 1);
@@ -7,16 +7,15 @@ public class Recurssion {
 	    return 1;
 	}
     }
-    public int fib(n){ //this is both in and out of coding bat? why?
+    public int fib(int n){ //this is both in and out of coding bat? why?
 	if (n > 1){
 	    return fib(n - 1) + fib(n - 2);
 	}
 	else if (n == 1){
 	    return 1;
 	}
-	else {
 	    return 0;
-	}
+
     }
     public int len(String s){
 	if (!s.equals("")){
@@ -32,9 +31,7 @@ public class Recurssion {
 		return 1 + len(s.substring(1));
 	    }
         }
-	else {
-	    return 0;
-        }
+	return 0;
     }
     public int bunnyEars2(int bunnies) { //you put this question twice?
 	if (bunnies == 0){
