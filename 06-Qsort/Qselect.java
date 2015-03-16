@@ -78,8 +78,8 @@ public class Qselect{
     public void sort(int[] a, int l, int h){
         if(l != h){
 	    int ph = partition(a,l,h);
-	    sort(a, l, p-1);
-	    sort(a,p+1,h)
+	    sort(a, l, ph-1);
+	    sort(a,ph+1,h);
 	}
     }
     public static void main(String[] args) {

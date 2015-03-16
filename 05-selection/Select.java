@@ -2,11 +2,11 @@ public class Select{
     public Select(){
 	
     }
-    public int Select(int[] a, int k, ing l, int h){
+    public int Select(int[] a, int k, int l, int h){
 	int pivot = a[k];
 	a[k]=a[h];
-	li=l;
-	hi=h;
+	int li=l;
+	int hi=h;
 	while (hi>li){
 	    if(a[li]<pivot){
 		li++;
@@ -16,12 +16,13 @@ public class Select{
 		a[hi]=ph;
 	    }
 	}
+	int pi = 0;
 	if (a[li] > pivot){
-	    int pi = li;
+	    pi = li;
 	    a[h]=a[li];
 	    a[li]=pivot;
 	} else {
-	    int pi = li+1;
+	    pi = li+1;
 	    a[h]=a[li+1];
 	    a[li+1]=pivot;
 	}
@@ -29,10 +30,11 @@ public class Select{
 	    return pivot;
 	}
 	else if (k < pi){
-	    Select(a,k,pi+1,h);
+	    return Select(a,k,pi+1,h);
 	} else {
-	    Select(a,k,l,pi-1);
+	    return Select(a,k,l,pi-1);
 	}
+
     }
     public int select(int[] l, int si, int ei){
 	int[] D = new int[l.length];
