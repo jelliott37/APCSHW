@@ -7,13 +7,12 @@ public class LList{
 	Node tmp = new Node(s);
 	tmp.setNext(l);
 	l = tmp;
-	len +=1;
-	dummy.setNext(
+	len += 1;
     }
 		
     public String toString(){
 	String s = "";
-	Node tmp;;
+	Node tmp;
 	for (tmp=l ; tmp!=null ; tmp=tmp.getNext()){
 	    s = s + tmp + " --> ";
 	}
@@ -24,8 +23,8 @@ public class LList{
 	if (n > len){
 	    return null;
 	}
-	Node tmp = dummy;
-	while (n + 1 > 0){
+	Node tmp = l;
+	while (n > 0){
 	    n--;
 	    tmp = tmp.getNext();
 	}
@@ -35,22 +34,33 @@ public class LList{
 	if (n > len){
 	    return;
 	}
-	Node tmp = dummy;
-	while (n + 1 > 1){
+	Node tmp = l;
+	while (n - 1 > 1){
 	    n--;
 	    tmp = tmp.getNext();
 	}
-	tmp.setNext(newNode(s, tmp.getNext()));
+	if (tmp.getNext() != null){
+	    tmp.setNext(new Node(s, tmp.getNext()));
+	} else {
+	    tmp.setNext(new Node(s));
+	}
     }
     public void remove(int n){
 	if (n > len){
 	    return ;
+	} else if (n == 0){
+	    
 	}
-	Node tmp = dummy;
-	while (n + 1 > 1){
+	Node tmp = l;
+	while (n -1 > 1){
 	    n--;
 	    tmp = tmp.getNext();
 	}
-	tmp.setNext(tmp.getNext().getNext());
+	if (tmp.getNext().getNext() != null){
+	    tmp.setNext(tmp.getNext().getNext());
+	} else {
+	    tmp.setNext(null);
+	}
+
     }
 }
