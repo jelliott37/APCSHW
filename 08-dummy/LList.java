@@ -31,11 +31,17 @@ public class LList{
 	return tmp;
     }
     public void add(int n, String s){
-	if (n > len){
+	if (n + 1 > len){
+	    return;
+	}
+	if (n == 0){
+	    dummy.setNext(new Node(s, l));
+	    l=dummy.getNext();
+	    System.out.println(this + "ASDF" + s);
 	    return;
 	}
 	Node tmp = l;
-	while (n - 1 > 1){
+	while (n > 1){
 	    n--;
 	    tmp = tmp.getNext();
 	}
@@ -49,10 +55,11 @@ public class LList{
 	if (n > len){
 	    return ;
 	} else if (n == 0){
-	    
+	    dummy.setNext(l.getNext());
+	    l = dummy.getNext();
 	}
 	Node tmp = l;
-	while (n -1 > 1){
+	while (n > 1){
 	    n--;
 	    tmp = tmp.getNext();
 	}
