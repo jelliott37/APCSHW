@@ -1,0 +1,13 @@
+public class Driver{
+    public static void main(String[] args){
+	myQueue<String> q = new myQueue<String>("blah");
+	System.out.println(q.head());
+	System.out.println(q.dequeue());
+	System.out.println(q.head());
+	q.enqueue("BLAH");
+	q.enqueue("blah");
+	System.out.println(q.head());
+	System.out.println(q.dequeue());
+	
+    }
+}
