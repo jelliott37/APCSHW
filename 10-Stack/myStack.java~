@@ -1,0 +1,37 @@
+public class myStack<E>{
+    Node<E> dum = new Node<E>(null);
+
+    public myStack<E>(E e){
+	dum.setNext(new Node<E>(e,null));
+    }
+
+    public void push(E data){
+        if (empty()){
+	    return null;
+	}
+	else{
+	    return dum.getNext();
+	}
+    }
+
+    public E pop(){
+	if(empty()){
+	    return null;
+	}
+	else{
+	    i = dum.getData();
+	    dum.setNext(dum.getNext().getNext());
+	    return i;
+	}
+    }
+
+    public boolean empty(){
+	return dum.getNext()==null;
+    }
+
+    public E top() {
+	i = pop();
+	push(i);
+	return i;
+    }
+}
