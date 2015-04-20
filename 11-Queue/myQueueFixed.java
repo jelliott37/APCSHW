@@ -1,4 +1,4 @@
-public class myQueueArray{
+public class myQueueFixed{
     private int[] array;
     private int start;
     private int end;
