@@ -92,10 +92,10 @@ public class Maze
     /*
       Only adds if the tx,ty spot is available path or exit
     */
-    public void addToFront(int tx,int ty, Node current){
+    public void addToFront(int tx,int ty, Node current, int ex, int ey){
 	Node tmp = null;
 	if (board[tx][ty]=='#' || board[tx][ty]=='$'){
-	    tmp = new Node(tx,ty);
+	    tmp = new Node(tx,ty, Math.abs(ex-tx+ey-ty));
 	    tmp.setPrev(current);
 	    f.add(tmp);
 	}
@@ -107,7 +107,14 @@ public class Maze
 	f = new StackFront();
 
 	f.add(new Node(x,y));
-
+	int ex=0, ey=0;
+	for (int i = 0;i<board.length;i++){
+	    for (int k = 0; k <board[0].length;k++){
+		if (board[i][k]=='$'){
+		    ex=i;ey=k;
+		}
+	    }
+	}
 	int tx=0,ty=0;
 	Node current = null;
 	while (!f.isEmpty()){
@@ -120,10 +127,10 @@ public class Maze
 						
 	    board[cx][cy]='z';
 
-	    addToFront(cx+1,cy,current);
-	    addToFront(cx-1,cy,current);
-	    addToFront(cx,cy+1,current);
-	    addToFront(cx,cy-1,current);
+	    addToFront(cx+1,cy,current,ex,ey);
+	    addToFront(cx-1,cy,current,ex,ey);
+	    addToFront(cx,cy+1,current,ex,ey);
+	    addToFront(cx,cy-1,current,ex,ey);
 
 	    delay(50);
 	    System.out.println(this);
