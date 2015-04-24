@@ -1,10 +1,10 @@
 public class Node{
-    private int Data;
+    private Integer Data;
     private Node right,left;
-    public Node(int n){
+    public Node(Integer n){
 	Data = n;
     }
-    public int getData(){
+    public Integer getData(){
 	return Data;
     }
     public Node getRight(){
@@ -19,7 +19,7 @@ public class Node{
     public void setLeft(Node n){
 	left = n;
     }
-    public void setData(int i){
+    public void setData(Integer i){
 	Data = i;
     }
 }
