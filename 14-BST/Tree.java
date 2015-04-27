@@ -1,3 +1,4 @@
+import java.util.*;
 public class Tree{
     private Node start;
     public Node search(Integer i){
@@ -16,13 +17,16 @@ public class Tree{
     }
 
     public void insert(Integer i){
+	if(start == null){
+	    start = new Node(i);
+	}
 	Node T = start;
 	Node t2 = T;
 	while (T != null){
 	    t2 = T;
 	    int ph = T.getData().compareTo(i);
 	    if (ph == 0){
-		break;
+		return ;
 	    } else if (ph < 0){
 		T = T.getLeft();
 	    } else {
@@ -64,7 +68,9 @@ public class Tree{
     }
     private void inserthelp(Integer i, Node t){
 	int ph = t.getData().compareTo(i);
-	if(ph < 0){
+	if(ph == 0) {
+	    return ;
+	} else if(ph < 0){
 	    if (t.getLeft() != null){
 		inserthelp(i, t.getLeft());
 	    } else {
@@ -80,17 +86,30 @@ public class Tree{
     }
 
     public String toString(){
-	String ret = "";
-	return toStringHelper(start,ret);
+	return toStringHelper(start);
     }
-    private String toStringHelper(Node t, String ret){
+    private String toStringHelper(Node t){
 	if(t == null){
-	    return;
+	    return "";
 	}
-	ret += String.parseInt(t.getData());
-	ret += toStringHelper(t.getLeft, ret);
-	ret += toStringHelper(t.getRight, ret);
+	String ret = new String("");
+	ret += toStringHelper(t.getRight());
+	//	System.out.println("This is a new element");
+	ret += String.valueOf(t.getData()) + ";  ";
+	//System.out.println(t.getData());
+
+	ret += toStringHelper(t.getLeft());
 	return ret;
+    }
+    public static void main(String[] args){
+	Tree test = new Tree();
+	Random r = new Random();
+	//int[] = 
+	for(int i = 1; i <=  20; i++){
+	    System.out.println(test);
+	    test.insert(r.nextInt(i));
+	}
+
     }
     
 }
